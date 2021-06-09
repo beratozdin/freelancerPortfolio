@@ -25,3 +25,23 @@ exports.createWork = (req, res) => {
           res.status(400).redirect('/');
         }
 };
+
+exports.updateWork = async (req, res) => {
+
+  const work = await Work.findOne({ slug: req.params.slug });
+  work.name = req.body.name;
+  work.description = req.body.description;
+  work.save();
+
+  res.redirect(`/works/${req.params.slug}`)
+
+};
+
+exports.deleteWork = async (req, res) => {
+
+  const work = await Work.findOne({ slug: req.params.slug });
+  let deletedImage = __dirname + '/../public' + work.image;
+  fs.unlinkSync(deletedImage);
+  await Work.findOneAndRemove(req.params.slug);
+  res.redirect('/');
+};

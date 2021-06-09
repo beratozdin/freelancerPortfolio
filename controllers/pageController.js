@@ -1,7 +1,12 @@
+const Work = require('../models/Work');
 
+exports.getIndexPage = async (req, res) => {
 
-exports.getIndexPage = (req, res) => {
-  res.status(200).render("index");
+  const works = await Work.find({});
+
+  res.status(200).render("index",{
+    works
+  });
 };
 
 exports.getAboutPage = (req, res) => {
