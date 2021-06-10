@@ -10,7 +10,7 @@ const app = express();
 
 //Connecting DB
 mongoose
-  .connect('mongodb+srv://berat:83xy1o8h73vMsQXG@cluster0.qnyw8.mongodb.net/freelancer-db?retryWrites=true&w=majority', {
+  .connect('mongodb://localhost/freelancer-db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
