@@ -19,7 +19,7 @@
  
  The project is on heroku. You can try it. :monocle_face: :monocle_face: :monocle_face:
  
- Live App: [Link](https://freelancer-page.herokuapp.com//)
+ Live App: [Link](https://freelancer-page.herokuapp.com/)
  
  
  ![5ctfyk](https://user-images.githubusercontent.com/32714982/121575470-1be27900-ca30-11eb-84d3-34e46c0f2ecd.gif)
