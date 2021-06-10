@@ -1,5 +1,6 @@
 const Work = require('../models/Work');
 const nodemailer = require('nodemailer');
+
 exports.getIndexPage = async (req, res) => {
 
   const works = await Work.find({});
@@ -41,28 +42,23 @@ exports.sendEmail = async (req, res) => {
   <h1>Message</h1>
   <p>${req.body.message}</p>
   `
-
- 
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: " ", // gmail account
-      pass: " ", // gmail password
+      user: "be67rat@gmail.com", // gmail account
+      pass: "ztaaqrbwinszusyd", // gmail password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: ' ', // sender address
-    to: " ", // list of receivers
+    to: "be67rat@gmail.com", // list of receivers
     subject: "Contact Form New Message ✔", // Subject line
     html: outputMessage, // html body
   });
   res.status(200).redirect('/contact');
-  
-
-  
- 
+   
 };

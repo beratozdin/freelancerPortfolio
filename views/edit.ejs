@@ -38,14 +38,14 @@
                         <form id="contactForm" method="POST" action="/works/<%=work.slug%>?_method=PUT" encType="multipart/form-data"  data-sb-form-api-token="API_TOKEN">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" name="name" type="text" value="<%= work.name %>" placeholder="Enter your work name..." data-sb-validations="required" />
+                                <input class="form-control" id="name" name="name" type="text" value="<%= work.name %>" placeholder="Enter your work name" data-sb-validations="required" />
                                 <label for="name">Full name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Description input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="description" name="description" type="text" placeholder="name@example.com"><%= work.name %></textarea>
-                                <label for="email">Work description</label>
+                                <textarea class="form-control" id="description" name="description" type="text" placeholder="Explain your work"><%= work.description %></textarea>
+                                <label for="description">Work description</label>
                             </div>
                             <!-- İmage input-->
                             <div class="form-floating mb-3">

@@ -10,7 +10,7 @@
                     <h1 class="masthead-heading mb-4 mx-auto"><%=work.name%></h1>
                     <img class="img-fluid mb-4" src="<%= work.image %>" alt="Image" />
                     <p class="masthead-subheading"><%=work.description%></p>
-                    <div class="row">
+                    <div class="row mb-3">
                         <a class="btn btn-primary btn-x2 col-lg-2 offset-4" href="/works/edit/<%= work.slug %>">Update Work</a>
                         <a class="btn btn-primary btn-x2 col-lg-2" href="/works/<%= work.slug %>?_method=DELETE">Delete Work</a> 
                     </div>     

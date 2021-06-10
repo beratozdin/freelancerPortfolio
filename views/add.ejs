@@ -2,9 +2,8 @@
     <body id="page-top">
         <!-- Navigation-->
         <%- include('partials/_navigation'); %>
-    </br>
-</br>
-        
+        </br>
+        </br>
 
         <!-- Contact Section-->
         <section class="page-section" id="contact">
@@ -30,19 +29,19 @@
                         <form id="contactForm" method="POST" action="/works" encType="multipart/form-data"  data-sb-form-api-token="API_TOKEN">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter your work name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter your work name" data-sb-validations="required" />
+                                <label for="name">Work Name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Description input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="description" name="description" type="text" placeholder="name@example.com"></textarea>
-                                <label for="email">Work description</label>
+                                <textarea class="form-control" id="description" name="description" type="text" placeholder="Explain your work"></textarea>
+                                <label for="description">Work description</label>
                             </div>
                             <!-- İmage input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="file" type="file" name="image" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Work image</label>                   
+                                <input class="form-control" id="file" type="file" name="image" data-sb-validations="required" />
+                                <label for="file">Work image</label>                   
                             </div>
                             <!-- Submit Button-->
                             <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>

@@ -8,10 +8,9 @@ const workRoute = require('./routes/workRoute');
 
 const app = express();
 
-
 //Connecting DB
 mongoose
-  .connect('mongodb://localhost/freelancerApp-db', {
+  .connect('mongodb+srv://berat:83xy1o8h73vMsQXG@cluster0.qnyw8.mongodb.net/freelancer-db?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -37,11 +36,10 @@ app.use(methodOverride('_method',{
 }));
 
 //Routes
-
 app.use('/',pageRoute);
 app.use('/works',workRoute);
 
-const port= 3000;
+const port= process.env.PORT || 5000
 app.listen(port, () => {
   console.log(`Sunucu ${port} portunda başlatıldı..`);
 });

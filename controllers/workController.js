@@ -2,7 +2,6 @@ const Work = require('../models/Work');
 const fs = require('fs');
 const path=require('path');
 
-
 exports.createWork = (req, res) => {
 
     try{
@@ -33,8 +32,8 @@ exports.updateWork = async (req, res) => {
   work.name = req.body.name;
   work.description = req.body.description;
   work.save();
-   
-  res.redirect(`/`);
+
+  res.status(200).redirect(`/`);
 
 };
 
@@ -44,7 +43,7 @@ exports.deleteWork = async (req, res) => {
   let deletedImage = __dirname + '/../public' + work.image;
   fs.unlinkSync(deletedImage);
   await Work.findOneAndRemove({slug : req.params.slug});
-  res.redirect('/');
+  res.status(200).redirect('/');
 
 };
 
