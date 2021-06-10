@@ -1,0 +1,36 @@
+<%- include('partials/_header'); %>
+    <body id="page-top">
+        <!-- Navigation-->
+        <%- include('partials/_navigation'); %>
+        <!-- Portfolio Section-->
+    </br></br></br></br></br></br></br></br>
+        <section>
+            <div class="container-sm">
+                <div class="row justify-content-center">                    
+                    <h1 class="masthead-heading mb-4 mx-auto"><%=work.name%></h1>
+                    <img class="img-fluid mb-4" src="<%= work.image %>" alt="Image" />
+                    <p class="masthead-subheading"><%=work.description%></p>
+                    <div class="row">
+                        <a class="btn btn-primary btn-x2 col-lg-2 offset-4" href="/works/edit/<%= work.slug %>">Update Work</a>
+                        <a class="btn btn-primary btn-x2 col-lg-2" href="/works/<%= work.slug %>?_method=DELETE">Delete Work</a> 
+                    </div>     
+                </div>
+            </div>
+        </section>
+       
+        <!-- Copyright Section-->
+        <div class="copyright py-4 text-center text-white">
+            <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

@@ -2,11 +2,11 @@ const Work = require('../models/Work');
 const fs = require('fs');
 const path=require('path');
 
+
 exports.createWork = (req, res) => {
 
     try{
-        const uploadDir = 'public/uploads';
-        console.log(req.body);
+        const uploadDir = 'public/uploads';       
         if (!fs.existsSync(uploadDir)) {
           fs.mkdirSync(uploadDir);
         }
@@ -29,11 +29,12 @@ exports.createWork = (req, res) => {
 exports.updateWork = async (req, res) => {
 
   const work = await Work.findOne({ slug: req.params.slug });
+  console.log(req.body);
   work.name = req.body.name;
   work.description = req.body.description;
   work.save();
-
-  res.redirect(`/works/${req.params.slug}`)
+   
+  res.redirect(`/`);
 
 };
 
@@ -42,6 +43,17 @@ exports.deleteWork = async (req, res) => {
   const work = await Work.findOne({ slug: req.params.slug });
   let deletedImage = __dirname + '/../public' + work.image;
   fs.unlinkSync(deletedImage);
-  await Work.findOneAndRemove(req.params.slug);
+  await Work.findOneAndRemove({slug : req.params.slug});
   res.redirect('/');
+
+};
+
+exports.getWork = async (req, res) => {
+
+  const work = await Work.findOne({slug: req.params.slug});
+
+  res.status(200).render('work', {
+    work
+  });
+
 };

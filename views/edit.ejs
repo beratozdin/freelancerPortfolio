@@ -2,15 +2,29 @@
     <body id="page-top">
         <!-- Navigation-->
         <%- include('partials/_navigation'); %>
-    </br>
-</br>
-        
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" src="/assets/img/avataaars.svg" alt="..." />
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+            </div>
+        </header>
 
         <!-- Contact Section-->
         <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Add a new project</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Edit your project</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -20,29 +34,23 @@
                 <!-- Contact Section Form-->
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" method="POST" action="/works" encType="multipart/form-data"  data-sb-form-api-token="API_TOKEN">
+
+                        <form id="contactForm" method="POST" action="/works/<%=work.slug%>?_method=PUT" encType="multipart/form-data"  data-sb-form-api-token="API_TOKEN">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Enter your work name..." data-sb-validations="required" />
+                                <input class="form-control" id="name" name="name" type="text" value="<%= work.name %>" placeholder="Enter your work name..." data-sb-validations="required" />
                                 <label for="name">Full name</label>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Description input-->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="description" name="description" type="text" placeholder="name@example.com"></textarea>
+                                <textarea class="form-control" id="description" name="description" type="text" placeholder="name@example.com"><%= work.name %></textarea>
                                 <label for="email">Work description</label>
                             </div>
                             <!-- İmage input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="file" type="file" name="image" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Work image</label>                   
+                                <img src="<%= work.image %>">
+                                <label for="image">Work image</label>                   
                             </div>
                             <!-- Submit Button-->
                             <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
