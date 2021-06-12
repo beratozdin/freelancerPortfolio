@@ -28,13 +28,10 @@ exports.createWork = (req, res) => {
 exports.updateWork = async (req, res) => {
 
   const work = await Work.findOne({ slug: req.params.slug });
-  console.log(req.body);
   work.name = req.body.name;
   work.description = req.body.description;
-  work.save();
-
+  await work.save();
   res.status(200).redirect(`/`);
-
 };
 
 exports.deleteWork = async (req, res) => {
@@ -54,5 +51,4 @@ exports.getWork = async (req, res) => {
   res.status(200).render('work', {
     work
   });
-
 };

@@ -14,6 +14,10 @@ exports.getAboutPage = (req, res) => {
   res.status(200).render('about');
 };
 
+exports.getLoginPage = (req, res) => {
+  res.status(200).render('login');
+};
+
 exports.getContactPage = (req, res) => {
   res.status(200).render('contact');
 };
@@ -47,15 +51,15 @@ exports.sendEmail = async (req, res) => {
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: " ", // Enter your gmail account
-      pass: " ", // Enter your gmail password
+      user: "be67rat@gmail.com", // Enter your gmail account
+      pass: "ztaaqrbwinszusyd", // Enter your gmail password
     },
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: ' ', // sender address
-    to: ' ', // list of receivers
+    to: 'be67rat@gmail.com', // list of receivers
     subject: "Contact Form New Message ✔", // Subject line
     html: outputMessage, // html body
   });
